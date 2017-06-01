@@ -10,7 +10,7 @@
 	}
   
 	// vyberu data z databaze
-	$res=mysql_query("SELECT * FROM users WHERE userId=".$_SESSION['user']);
+	$res=mysql_query("SELECT * FROM users WHERE id=".$_SESSION['user']);
 	$userRow=mysql_fetch_array($res);
 
 ?>
@@ -18,7 +18,7 @@
 <?php
 $passw = $_POST['passw'];
 if(isset($_POST['zmena'])) {$heslo = hash('sha256', $passw);
-mysql_query("UPDATE users SET userPass='$heslo' WHERE username='".$userRow['userName']."'");
+mysql_query("UPDATE users SET pass='$heslo' WHERE username='".$userRow['username']."'");
 
 echo "<meta http-equiv='refresh' content='3;url=logout.php?logout'>";
 echo'  <div class="alert alert-success">
