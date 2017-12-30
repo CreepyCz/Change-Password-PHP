@@ -26,11 +26,11 @@ echo'  <div class="alert alert-success">
   </div>';};?>
 <form action="" method="POST">
 <i class="fa fa-cog"></i> Změna hesla
-<input type="text" name="passw" placeholder="Zadejte nové heslo">
-<input type="text" name="heslo_znova" placeholder="Zopakujte nové heslo">
+<input type="text" name="passw" placeholder="Zadejte nové heslo" required>
+<input type="text" name="heslo_znova" placeholder="Zopakujte nové heslo" required>
 <button style="margin-top: 10px; margin-left:640px;" name="zmena">Odeslat</button></form>
 
-<!-- http://new.creepos.eu/ Online demo v záložce účet -->
+<!-- http://majnlist.eu/ -->
 
 
 Tento kód potřeba změnit podle sebe, (sessiony, název db, tabulka, username atd atd..)
