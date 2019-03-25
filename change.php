@@ -1,7 +1,7 @@
 <?php
 	ob_start();
 	session_start();
-	require_once 'souborspripojenimkdatabazi.php';
+	require_once 'database.php';
 	
 	// pokud nejsi prihlaseny hodi te to na index
 	if( !isset($_SESSION['user']) ) {
@@ -10,15 +10,15 @@
 	}
   
 	// vyberu data z databaze
-	$res=mysql_query("SELECT * FROM users WHERE id=".$_SESSION['user']);
-	$userRow=mysql_fetch_array($res);
+	$res = mysql_query("SELECT * FROM users WHERE id=".$_SESSION['user']);
+	$user = mysql_fetch_array($res);
 
 ?>
 
 <?php
 $passw = $_POST['passw'];
 if(isset($_POST['zmena'])) {$heslo = hash('sha256', $passw);
-mysql_query("UPDATE users SET pass='$heslo' WHERE username='".$userRow['username']."'");
+mysql_query("UPDATE users SET pass='$heslo' WHERE username='".$user['username']."'");
 
 echo "<meta http-equiv='refresh' content='3;url=logout.php?logout'>";
 echo'  <div class="alert alert-success">
@@ -30,7 +30,7 @@ echo'  <div class="alert alert-success">
 <input type="text" name="heslo_znova" placeholder="Zopakujte nové heslo" required>
 <button style="margin-top: 10px; margin-left:640px;" name="zmena">Odeslat</button></form>
 
-<!-- http://majnlist.eu/ -->
+<!-- https://goldbow.eu/ -->
 
 
-Tento kód potřeba změnit podle sebe, (sessiony, název db, tabulka, username atd atd..)
+Tento kód potřeba změnit podle sebe, (sessiony, název db, tabulka, názvy tabulek atd atd..)
